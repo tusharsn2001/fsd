@@ -3,10 +3,15 @@ require("./db/connection")
 const foods = require("./modules/foods")
 const app = express();
 const port = process.env.PORT || 3001
-
+const cors = require('cors');
 
 
 // Get Api Data
+app.use(cors(
+    {
+        origin: "*"
+    }
+));
 
 app.get("/foods", async (req, res) => {
     try {
